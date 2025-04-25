@@ -148,20 +148,13 @@ body {
     font-size: 12px;
 }
 /* end settings box */
-@media (max-width: 767px) {
+@media (max-width: 575px) {
     html,
     body {
         max-width: 100%;
         overflow-x: hidden;
     }
 }
-
-/* Start Nav Bullets */
-/* @media (max-width: 767px) {
-    .nav-bullets {
-        display: none;
-    }
-} */
 
 .nav-bullets {
     position: fixed;
