@@ -77,18 +77,25 @@ colorsLi.forEach((li) => {
     });
 });
 
-// Select bullets
+// Handle bullets active class on scroll
 const allBullets = document.querySelectorAll(".nav-bullets .bullet");
-allBullets.forEach((bullet) => {
-    bullet.addEventListener("click", (e) => {
-        // Remove active class from all bullets
-        allBullets.forEach((b) => {
-            b.classList.remove("active");
-        });
-        // Add active class to clicked bullet
-        e.target.classList.add("active");
-    });
-});
+const sections = document.querySelectorAll(".section");
+
+function handleScroll() {
+  sections.forEach((section, index) => {
+    const rect = section.getBoundingClientRect();
+    const isVisible =
+      rect.top <= window.innerHeight / 2 &&
+      rect.bottom >= window.innerHeight / 2;
+
+    if (isVisible) {
+      allBullets.forEach((bullet) => bullet.classList.remove("active"));
+      allBullets[index].classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", handleScroll);
 
 // Select Links
 const allLinks = document.querySelectorAll(".links a");
